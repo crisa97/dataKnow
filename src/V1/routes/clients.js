@@ -5,12 +5,12 @@ const clientController = require('../../controllers/clientController')
 router
     .get('/', clientController.getAllClients)
 
-    .get('/:clientId', clientController.getOneClients)
+    .get('/:id', clientController.getOneClients)
 
-    .post("/:clientId", clientController.createClient)
+    .post("/", clientController.createClient)
 
-    .patch(":clientId", clientController.updateClient)
+    .put("/:id", clientController.updateClient)
 
-    .delete("/:clientId", clientController.deleteCliente)
+    .delete("/:id", clientController.deleteCliente)
 
 module.exports = router;

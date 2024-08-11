@@ -1,10 +1,33 @@
 const Invoice = require('../models').Factura;
+const Client = require('../models').Client;
 
-const getAllInvoice = async function () {
+const getAllInvoice = async function(limit, offset, from, to, idCliente) {
     try {
-        return await Invoice.findAll();
+        // Filtro para las fechas
+        const dateFilter = from && to ? { createdAt: { [Op.between]: [from, to] } } : {};
+
+        // Filtro para el cliente
+        const clientFilter = idCliente ? { clientId: idCliente } : {};
+
+        // Obtener facturas con paginación y filtros
+        const { count, rows } = await Invoice.findAndCountAll({
+            where: {
+                ...dateFilter,
+                ...clientFilter
+            },
+            limit,
+            offset,
+            include: [
+                {
+                    model: Client,
+                    as: 'cliente', 
+                }
+            ]
+        });
+
+        return { count, rows };
     } catch (error) {
-        throw new Error(`Error al obtener los clientes: ${error.message}`);
+        throw new Error(`Error al obtener las facturas: ${error.message}`);
     }
 };
 

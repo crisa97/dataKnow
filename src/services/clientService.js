@@ -1,8 +1,12 @@
 const client = require('../models').Client;
 
-const getAllClients = async function () {
+const getAllClients = async function(limit, offset) {
     try {
-        return await client.findAll();
+        const { count, rows } = await client.findAndCountAll({
+            limit,
+            offset
+        });
+        return { count, rows };
     } catch (error) {
         throw new Error(`Error al obtener los clientes: ${error.message}`);
     }

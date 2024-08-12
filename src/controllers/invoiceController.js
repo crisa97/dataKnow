@@ -4,7 +4,7 @@ const getAllInvoice = async function(req, res) {
     try {
         // Obtener parámetros de consulta
         const page = parseInt(req.query.page) || 1;
-        const pageSize = parseInt(req.query.pageSize) || 10;
+        const pageSize = parseInt(req.query.pageSize) || 2;
         const from = req.query.from ? new Date(req.query.from) : null;
         const to = req.query.to ? new Date(req.query.to) : null;
         const idCliente = req.query.idCliente ? parseInt(req.query.idCliente) : null;

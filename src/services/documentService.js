@@ -1,4 +1,4 @@
-const Document = require('../models').Documento;
+const Document = require('../database/models').Documento;
 
 const getAllDocuments = async function () {
     try {

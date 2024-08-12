@@ -4,7 +4,7 @@ const getAllClients = async function(req, res) {
     try {
         // Obtener parámetros de consulta para paginación
         const page = parseInt(req.query.page) || 1;
-        const pageSize = parseInt(req.query.pageSize) || 2;
+        const pageSize = parseInt(req.query.pageSize) || 10;
 
         // Asegúrate de que los valores de paginación sean válidos
         if (page < 1 || pageSize < 1) {

@@ -1,4 +1,4 @@
-const client = require('../models').Client;
+const client = require('../database/models').Client;
 
 const getAllClients = async function(limit, offset) {
     try {

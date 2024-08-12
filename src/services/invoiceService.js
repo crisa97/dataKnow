@@ -1,5 +1,5 @@
-const Invoice = require('../models').Factura;
-const Client = require('../models').Client;
+const Invoice = require('../database/models').Factura;
+const Client = require('../database/models').Client;
 
 const getAllInvoice = async function(limit, offset, from, to, idCliente) {
     try {

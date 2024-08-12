@@ -1,6 +1,8 @@
 'use strict';
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
+
+  // Método que se ejecuta cuando se aplica la migración (up)
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Facturas', {
       id: {
@@ -46,6 +48,8 @@ module.exports = {
       }
     });
   },
+  
+  // Método que se ejecuta cuando se revierte la migración (down)
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Facturas');
   }

@@ -1,5 +1,6 @@
 const documentService = require('../services/documentService')
 
+// Obtiene todos los documentos
 const getAllDocuments = async  function(req, res) {
     try {
         const allDocuments = await documentService.getAllDocuments();
@@ -9,6 +10,7 @@ const getAllDocuments = async  function(req, res) {
     }
 };
 
+// Obtiene un documento específico por su ID
 const getOneDocuments = async function(req, res){
     try {
         const document  = await documentService.getOneDocument(req.params.id)
@@ -22,6 +24,7 @@ const getOneDocuments = async function(req, res){
     }
 }
 
+// Crea un nuevo documento
 const createDocument = async function(req, res) {
     try {
         const createdDocument = await documentService.createDocument(req.body);
@@ -31,6 +34,7 @@ const createDocument = async function(req, res) {
     }
 };
 
+// Actualiza un documento existente
 const updateDocument = async function(req, res) {
     try {
         const idDocument = req.params.id; 
@@ -45,7 +49,7 @@ const updateDocument = async function(req, res) {
     }
 };
 
-
+// Elimina un documento por su ID
 const deleteDocument = async function(req, res) {
     try {
         const deletedDocument = await documentService.deleteDocument(req.params.id);
@@ -59,6 +63,7 @@ const deleteDocument = async function(req, res) {
     }
 };
 
+// Exporta los métodos del controlador
 module.exports = {
     getAllDocuments,
     getOneDocuments,

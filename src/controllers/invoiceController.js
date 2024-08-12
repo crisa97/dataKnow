@@ -1,5 +1,6 @@
 const invoiceService = require('../services/invoiceService')
 
+// Obtiene todas las facturas con paginación y filtros
 const getAllInvoice = async function(req, res) {
     try {
         // Obtener parámetros de consulta
@@ -37,6 +38,7 @@ const getAllInvoice = async function(req, res) {
     }
 };
 
+// Obtiene una factura específica por su ID
 const getOneInvoice = async function(req, res){
     try {
         const invoice  = await invoiceService.getOneInvoice(req.params.id)
@@ -50,6 +52,7 @@ const getOneInvoice = async function(req, res){
     }
 }
 
+// Crea una nueva factura
 const createInvoice = async function(req, res) {
     try {
         const createdInvoice = await invoiceService.createInvoice(req.body);
@@ -59,6 +62,7 @@ const createInvoice = async function(req, res) {
     }
 };
 
+// Actualiza una factura existente
 const updateInvoice = async function(req, res) {
     try {
         const idInvoice = req.params.id; 
@@ -73,7 +77,7 @@ const updateInvoice = async function(req, res) {
     }
 };
 
-
+// Elimina una factura por su ID
 const deleteInvoice = async function(req, res) {
     try {
         const deletedInvoice = await invoiceService.deleteInvoice(req.params.id);
@@ -87,6 +91,7 @@ const deleteInvoice = async function(req, res) {
     }
 };
 
+// Exporta los métodos del controlador
 module.exports = {
     getAllInvoice,
     getOneInvoice,

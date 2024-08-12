@@ -1,4 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
+  
+  // Definición del modelo 'Factura'
   const Factura = sequelize.define('Factura', {
     fecha: DataTypes.DATE,
     nombreProducto: DataTypes.STRING,
@@ -8,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     valorTotal: DataTypes.DECIMAL,
   }, {});
   
+  // Definición de asociaciones entre el modelo 'Factura' y  'Client'
   Factura.associate = function(models) {
     Factura.belongsTo(models.Client, {
       foreignKey: 'idCliente',

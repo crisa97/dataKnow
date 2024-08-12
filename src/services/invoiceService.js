@@ -1,6 +1,8 @@
+// Importación de los modelos 'Factura' y 'Client' desde la base de datos
 const Invoice = require('../database/models').Factura;
 const Client = require('../database/models').Client;
 
+// Función para obtener todas las facturas con soporte de paginación y filtros
 const getAllInvoice = async function(limit, offset, from, to, idCliente) {
     try {
         // Filtro para las fechas
@@ -31,6 +33,7 @@ const getAllInvoice = async function(limit, offset, from, to, idCliente) {
     }
 };
 
+// Función para obtener una factura específica por su ID
 const getOneInvoice = async function (id) {
     try {
         return await Invoice.findOne({ where: { id: id} });
@@ -39,6 +42,7 @@ const getOneInvoice = async function (id) {
     }
 };
 
+// Función para crear una nueva factura
 const createInvoice = async function (body) {
     try {
         return await Invoice.create({
@@ -55,6 +59,7 @@ const createInvoice = async function (body) {
     }
 };
 
+// Función para actualizar una factura existente por su ID
 const updateInvoice = async function (id, body) {
     try {
        
@@ -73,6 +78,7 @@ const updateInvoice = async function (id, body) {
     }
 };
 
+// Función para eliminar una factura por su ID
 const deleteInvoice = async function (id) {
     try {
         const deletedCount = await Invoice.destroy({ where: { id } });
@@ -85,6 +91,7 @@ const deleteInvoice = async function (id) {
     }
 };
 
+// Exportación de las funciones para ser utilizadas en otras partes de la aplicación
 module.exports = {
     getAllInvoice,
     getOneInvoice,

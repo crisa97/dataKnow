@@ -1,7 +1,9 @@
 'use strict';
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up(queryInterface, Sequelize) {
+
+  // Método que se ejecuta cuando se aplica la migración (up)
+async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Documentos', {
       id: {
         allowNull: false,
@@ -24,7 +26,8 @@ module.exports = {
     });
   },
 
-  async down(queryInterface, Sequelize) {
+// Método que se ejecuta cuando se revierte la migración (down)
+async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Documentos');
   }
 };

@@ -1,5 +1,6 @@
 const clientService = require('../services/clientService')
 
+// Obtiene todos los clientes con paginación
 const getAllClients = async function(req, res) {
     try {
         // Obtener parámetros de consulta para paginación
@@ -34,6 +35,7 @@ const getAllClients = async function(req, res) {
     }
 };
 
+// Obtiene un cliente específico por su ID
 const getOneClients = async function(req, res){
     try {
         const client  = await clientService.getOneClient(req.params.id)
@@ -47,6 +49,7 @@ const getOneClients = async function(req, res){
     }
 }
 
+// Crea un nuevo cliente
 const createClient = async function(req, res) {
     try {
         const createdClient = await clientService.createClient(req.body);
@@ -56,6 +59,7 @@ const createClient = async function(req, res) {
     }
 };
 
+// Actualiza un cliente existente
 const updateClient = async function(req, res) {
     try {
         const idCliente = req.params.id; 
@@ -70,7 +74,7 @@ const updateClient = async function(req, res) {
     }
 };
 
-
+// Elimina un cliente por su ID
 const deleteCliente = async function(req, res) {
     try {
         const deletedClient = await clientService.deleteCliente(req.params.id);
@@ -84,6 +88,7 @@ const deleteCliente = async function(req, res) {
     }
 };
 
+// Exporta los métodos del controlador
 module.exports = {
     getAllClients,
     getOneClients,

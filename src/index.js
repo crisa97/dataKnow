@@ -1,11 +1,12 @@
 // Importación de módulos necesarios
 const express = require("express");
+const cors = require('cors');
+
 const v1ClientRouter = require("./V1/routes/clients");
-const v1InvoiceRouter = require("./V1/routes/invoice")
-const v1DocumentRouter = require("./V1/routes/documents")
+const v1InvoiceRouter = require("./V1/routes/invoice");
+const v1DocumentRouter = require("./V1/routes/documents");
 
 const app = express();
-const cors = require('cors')
 
 // Configuración del puerto del servidor (3100 por defecto o el definido en el entorno)
 const PORT = process.env.PORT || 3100;
@@ -20,7 +21,7 @@ app.use(express.json());
 
 // Ruta principal para verificar que el servidor está en funcionamiento
 app.get("/", (req, res) => {
-    res.send("<h1>Hello world!</h1>");
+    res.send("<h1>🐈 Programing Cat!</h1>");
 });
 
 // Enrutadores para manejar las rutas específicas de la API
